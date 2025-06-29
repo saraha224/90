@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Animated Indicators</title>
+  <style>
+ 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #eee;
+      font-family: sans-serif;
+    }
+
+ 
+    .track {
+      position: relative;
+      width: 80vw;     
+      max-width: 30rem;
+      height: 1rem;
+      margin: 1rem 0;
+      background: #ccc;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+ 
+    .ball-container {
+      width: 80vw; max-width: 30rem;
+      height: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .ball {
+      position: absolute;
+      top: 0;
+      left: -2rem;
+      width: 2rem; height: 2rem;
+      background: tomato;
+      border-radius: 50%;
+  
+      animation: rollHoriz 1.5s linear infinite alternate;
+      transition: transform 0.3s;
+    }
+    .ball:hover {
+      transform: scale(1.2);
+    }
+    @keyframes rollHoriz {
+      0%   { left: -2rem; transform: rotate(0deg); }
+      100% { left: calc(100%); transform: rotate(720deg); }
+    }
+
+
+    .blue {
+      position: absolute;
+      top: 0; left: 0;
+      width: 2rem; height: 100%;
+      background: dodgerblue;
+      border-radius: 0.5rem;
+      animation: slideBlue 2s ease-in-out infinite alternate;
+      transition: background 0.3s;
+    }
+    .blue:hover {
+      background: darkblue;
+    }
+    @keyframes slideBlue {
+      0%   { left: 0; }
+      100% { left: calc(100% - 2rem); }
+    }
+
+
+    .green {
+      position: absolute; top: 0; left: 0;
+      width: 0; height: 100%;
+      background: limegreen;
+      border-radius: 0.5rem;
+      animation: loadGreen 3s ease-in-out infinite alternate;
+    }
+    @keyframes loadGreen { to { width: 100%; } }
+
+    .yellow {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: gold;
+      border-radius: 0.5rem;
+      animation: fadeYellow 2s ease-in-out infinite alternate;
+    }
+    @keyframes fadeYellow { to { opacity: 0; } }
+  </style>
+</head>
+<body>
+
+  
+  <div class="ball-container">
+    <div class="ball"></div>
+  </div>
+
+  <div class="track">
+    <div class="blue"></div>
+  </div>
+
+ 
+  <div class="track">
+    <div class="green"></div>
+  </div>
+  <div class="track">
+    <div class="yellow"></div>
+  </div>
+
+</body>
+</html>
+
+
+
+
